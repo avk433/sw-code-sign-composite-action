@@ -1,0 +1,12 @@
+name: test csg composite action
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: sw-ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: sherwin-williams-co/sw-code-sign-composite-action@main
+      with:
+        csg_password: ${{ secrets.CSG_PASSWORD }}
+        artifact_name: 'HelloWorld.jar'
