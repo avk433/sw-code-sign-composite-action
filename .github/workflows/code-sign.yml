@@ -9,23 +9,31 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: API call to download csg cli
-      uses: sherwin-williams-co/sw-fetch-gh-request-action@master
+      uses: sherwin-williams-co/sw-release-downloader-action@main
       with:
-        repo: "Corp-IS-InfoSec/csg-cli"
-        version: "tags/v1.0.1"
-        file: "csg-cli-linux-amd64-v1.0.1.tar.gz"
-       # target: "subdir/csg-cli-linux-amd64-v1.0.1.tar.gz"
-        token: ${{ secrets.GHES_PAT }}
+       repository: "Corp-IS-InfoSec/csg-cli"
+       tag: v1.0.1
+       fileName: "csg-cli-linux-amd64-v1.0.1.tar.gz"
+       tarBall: true
+       zipBall: true
       
-    - name: export CSG Address
-      run: |
-        cd subdir
-        tar -zxvf csg-cli-linux-amd64-v1.0.1.tar.gz
-        export CSG_ADDR=https://csg.sherwin.com
+#       uses: sherwin-williams-co/sw-fetch-gh-request-action@master
+#       with:
+#         repo: "Corp-IS-InfoSec/csg-cli"
+#         version: "tags/v1.0.1"
+#         file: "csg-cli-linux-amd64-v1.0.1.tar.gz"
+#        # target: "subdir/csg-cli-linux-amd64-v1.0.1.tar.gz"
+#         token: ${{ secrets.GHES_PAT }}
+      
+#     - name: export CSG Address
+#       run: |
+#         cd subdir
+#         tar -zxvf csg-cli-linux-amd64-v1.0.1.tar.gz
+#         export CSG_ADDR=https://csg.sherwin.com
     
-    - name: Login using cli (csg profiles)
-      run: |
-        csg profiles -u ${{ secrets.CSG_USERNAME }} -p ${{ secrets.CSG_PASSWORD }}
+#     - name: Login using cli (csg profiles)
+#       run: |
+#         csg profiles -u ${{ secrets.CSG_USERNAME }} -p ${{ secrets.CSG_PASSWORD }}
     
 #     - name: Sign jar file
 #       run: |
