@@ -1,0 +1,48 @@
+name: Code-Signing Composite Action
+description: Composite action for code signing
+author: DA Team <da.team@sherwin.com>
+
+inputs:
+  group_id:
+    required: true
+    default: '11'
+    description: 'Defaults to "gg-app-ncipher-csg-p-da-team" id'
+  signing_profile_id: 
+    required: true
+    default: '4'
+    description: 'Defaults to "JarSigning" profile id'
+  artifact_path:
+    required: true
+    default: '${{ github.workspace }}'
+    description: 'Path to the artifact that needs to be signed'
+  artifact_name:
+    required: true
+    description: 'Name of the artifact to be signed'
+  csg_username:
+    required: true
+    default: 'sa-digitalit-dss'
+    description: 'Username for the CSG'
+  csg_password:
+    required: true
+    description: 'Password for CSG'
+  
+runs:
+  using: "composite"  
+  steps:
+    - name: API call to download csg cli
+      uses: sherwin-williams-co/sw-release-downloader-action@main
+      with:
+       repository: "Corp-IS-InfoSec/csg-cli"
+       tag: v1.0.1
+       fileName: "csg-cli-linux-amd64-v1.0.1.tar.gz"
+       token: ${{ secrets.GHES_PAT }}
+       
+    - name: Extract tar file
+      run: |
+         tar -xvf csg-cli-linux-amd64-v1.0.1.tar.gz
+    
+    - name: Sign jar file
+      run: |
+        cd ${{github.workspace}}/output/linux
+        export CSG_ADDR=https://csg.sherwin.com 
+        ./csg sign -f ${{ inputs.artifact_path }}/${{ inputs.artifact_name }} -g ${{ inputs.group_id }} -i ${{ inputs.signing_profile_id }} -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
