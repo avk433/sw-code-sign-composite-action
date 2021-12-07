@@ -7,10 +7,23 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-java@v2
-      with: 
-        distribution: 'adopt'
-        java-version: 11
     
-    - name: execute jar
-      run: java -jar HelloWorld.jar
+    - name: API call to download csg cli
+      uses: dsaltares/fetch-gh-release-asset@master
+      with:
+        repo: "https://github.sherwin.com/Corp-IS-InfoSec/csg-cli/tree/v1.0.1"
+        version: "tags/v1.0.1"
+        file: "csg-cli-linux-amd64-v1.0.1.tar.gz"
+        target: "subdir/csg-cli-linux-amd64-v1.0.1.tar.gz"
+        token: ${{ secrets.GITHUB_TOKEN }}
+      
+#     - name: export CSG Address
+#       run: export CSG_ADDR=https://csg.sherwin.com
+    
+#     - name: Login using cli (csg profiles)
+#       run: |
+#         csg profiles -u ${{ secrets.CSG_USERNAME }} -p ${{ secrets.CSG_PASSWORD }}
+    
+#     - name: Sign jar file
+#       run: |
+#         csg sign -f <file_path> -g <group_id> -i <sign_id> -u 
