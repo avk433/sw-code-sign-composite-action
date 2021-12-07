@@ -14,7 +14,7 @@ jobs:
         repo: "Corp-IS-InfoSec/csg-cli"
         version: "tags/v1.0.1"
         file: "csg-cli-linux-amd64-v1.0.1.tar.gz"
-        target: "subdir/csg-cli-linux-amd64-v1.0.1.tar.gz"
+       # target: "subdir/csg-cli-linux-amd64-v1.0.1.tar.gz"
         token: ${{ secrets.GHES_PAT }}
       
     - name: export CSG Address
