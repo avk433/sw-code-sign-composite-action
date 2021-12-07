@@ -34,4 +34,4 @@ jobs:
       run: |
         cd ${{github.workspace}}/output/linux
         export CSG_ADDR=https://csg.sherwin.com 
-        ./csg sign -f HelloWord.jar -g ${{ github.event.inputs.group_id }} -i ${{ github.event.inputs.signing_profile_id }} -u ${{ secrets.CSG_USERNAME }} -p ${{ secrets.CSG_PASSWORD }}
+        ./csg sign -f ${{ github.workspace}}/HelloWorld.jar -g ${{ github.event.inputs.group_id }} -i ${{ github.event.inputs.signing_profile_id }} -u ${{ secrets.CSG_USERNAME }} -p ${{ secrets.CSG_PASSWORD }}
