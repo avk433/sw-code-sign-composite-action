@@ -20,22 +20,11 @@ jobs:
       run: |
          tar -xvf csg-cli-linux-amd64-v1.0.1.tar.gz
          
-     
     - name: run profiles
       run: |
         cd ${{github.workspace}}/output/linux
         export CSG_ADDR=https://csg.sherwin.com  
         ./csg profiles -u ${{ secrets.CSG_USERNAME }} -p ${{ secrets.CSG_PASSWORD }}
-        
-#     - name: export CSG Address
-#       run: |
-#         cd subdir
-#         tar -zxvf csg-cli-linux-amd64-v1.0.1.tar.gz
-#         export CSG_ADDR=https://csg.sherwin.com
-    
-#     - name: Login using cli (csg profiles)
-#       run: |
-#         csg profiles -u ${{ secrets.CSG_USERNAME }} -p ${{ secrets.CSG_PASSWORD }}
     
 #     - name: Sign jar file
 #       run: |
