@@ -25,6 +25,9 @@ inputs:
   csg_password:
     required: true
     description: 'Password for CSG'
+  ghes_pat:
+    required: true
+    description: 'GHES Personal Access Token to Download CSG CLI from GitHub Release'
   
 runs:
   using: "composite"  
@@ -35,7 +38,7 @@ runs:
        repository: "Corp-IS-InfoSec/csg-cli"
        tag: v1.0.1
        fileName: "csg-cli-linux-amd64-v1.0.1.tar.gz"
-       token: ${{ secrets.GHES_PAT }}
+       token: ${{ inputs.ghes_pat }}
        
     - name: Extract tar file
       run: |
