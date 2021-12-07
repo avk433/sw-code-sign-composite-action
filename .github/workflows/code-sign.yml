@@ -16,7 +16,7 @@ jobs:
        fileName: "csg-cli-linux-amd64-v1.0.1.tar.gz"
        tarBall: true
        zipBall: true
-      
+       token: ${{ secrets.GHES_PAT }}
 #       uses: sherwin-williams-co/sw-fetch-gh-request-action@master
 #       with:
 #         repo: "Corp-IS-InfoSec/csg-cli"
