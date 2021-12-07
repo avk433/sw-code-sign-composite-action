@@ -15,7 +15,7 @@ jobs:
         version: "tags/v1.0.1"
         file: "csg-cli-linux-amd64-v1.0.1.tar.gz"
         target: "subdir/csg-cli-linux-amd64-v1.0.1.tar.gz"
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GHES_PAT }}
       
 #     - name: export CSG Address
 #       run: export CSG_ADDR=https://csg.sherwin.com
