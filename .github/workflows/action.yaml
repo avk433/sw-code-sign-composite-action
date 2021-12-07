@@ -1,21 +1,21 @@
-name: Test Code-Signing 
-on: 
-  workflow_dispatch:
-    inputs:
-      group_id:
-        required: true
-        default: '11'
-        description: 'Defaults to "gg-app-ncipher-csg-p-da-team" id'
-      signing_profile_id: 
-        required: true
-        default: '4'
-        description: 'Defaults to "JarSigning" profile id'
+name: Code-Signing Composite Action
+description: Composite action for code signing
+author: DA Team <da.team@sherwin.com>
+inputs:
+ group_id:
+   required: true
+   default: '11'
+   description: 'Defaults to "gg-app-ncipher-csg-p-da-team" id'
+ signing_profile_id: 
+   required: true
+   default: '4'
+   description: 'Defaults to "JarSigning" profile id'
+   
+
       
-jobs:
-  code-sign:
-    runs-on: sw-ubuntu-latest
-    
-    steps:
+runs:
+  using: "composite"  
+  steps:
     - uses: actions/checkout@v2
     
     - name: API call to download csg cli
