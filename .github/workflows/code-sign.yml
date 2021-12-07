@@ -17,12 +17,12 @@ jobs:
         target: "subdir/csg-cli-linux-amd64-v1.0.1.tar.gz"
         token: ${{ secrets.GHES_PAT }}
       
-#     - name: export CSG Address
-#       run: export CSG_ADDR=https://csg.sherwin.com
+    - name: export CSG Address
+      run: export CSG_ADDR=https://csg.sherwin.com
     
-#     - name: Login using cli (csg profiles)
-#       run: |
-#         csg profiles -u ${{ secrets.CSG_USERNAME }} -p ${{ secrets.CSG_PASSWORD }}
+    - name: Login using cli (csg profiles)
+      run: |
+        csg profiles -u ${{ secrets.CSG_USERNAME }} -p ${{ secrets.CSG_PASSWORD }}
     
 #     - name: Sign jar file
 #       run: |
