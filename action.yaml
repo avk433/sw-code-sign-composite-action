@@ -52,7 +52,7 @@ runs:
     
     - name: Sign artifact
       run: |
-         set -v
+         set +x
          fileName="${{ inputs.csg_output_filename }}"
          if [ -z "${{ inputs.csg_output_filename }}" ]
          then
