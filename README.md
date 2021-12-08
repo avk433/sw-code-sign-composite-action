@@ -1,1 +1,1 @@
-# sw-code-sign-action
+# Code Sign Composite Action
