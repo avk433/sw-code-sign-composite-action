@@ -30,7 +30,7 @@ inputs:
     description: 'GHES Personal Access Token to Download CSG CLI from GitHub Release'
   csg_output_dir:
     required: false
-    default: '${{ github.workspace }}'
+    default: 'Signed_${{ inputs.artifact_name }}'
     description: 'Signed file Output Dir. Default is GitHub Workspace'
   
 runs:
