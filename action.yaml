@@ -58,7 +58,6 @@ runs:
       shell: bash
       
     - name: Clean Up the files
-       run: |
-          rm -rf ${{ github.workspace }}/csg-cli-linux-amd64-v1.0.1.tar.gz ${{ github.workspace }}/csg
-       shell: bash   
-      
+      run: |
+         rm -rf ${{ github.workspace }}/csg-cli-linux-amd64-v1.0.1.tar.gz ${{ github.workspace }}/csg
+      shell: bash
