@@ -28,6 +28,10 @@ inputs:
   ghes_pat:
     required: true
     description: 'GHES Personal Access Token to Download CSG CLI from GitHub Release'
+  csg_output_dir:
+    required: false
+    default: '${{ github.workspace }}'
+    description: 'Signed file Output Dir. Default is GitHub Workspace'
   
 runs:
   using: "composite"  
@@ -49,6 +53,6 @@ runs:
       run: |
         cd ${{ github.workspace }}/output/linux
         export CSG_ADDR=https://csg.sherwin.com 
-        ./csg sign -f ${{ inputs.artifact_path }}/${{ inputs.artifact_name }} -g ${{ inputs.group_id }} -i ${{ inputs.signing_profile_id }} -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
+        ./csg sign -f ${{ inputs.artifact_path }}/${{ inputs.artifact_name }} -o ${{ inputs.csg_output_dir}} -g ${{ inputs.group_id }} -i ${{ inputs.signing_profile_id }} -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
       shell: bash
       
