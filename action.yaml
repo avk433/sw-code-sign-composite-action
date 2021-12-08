@@ -52,6 +52,6 @@ runs:
     - name: Sign jar file
       run: |
          export CSG_ADDR=https://csg.sherwin.com 
-        ./csg sign -f ${{ inputs.artifact_path }}/${{ inputs.artifact_name }} -o ${{ inputs.csg_output_dir}} -g ${{ inputs.group_id }} -i ${{ inputs.signing_profile_id }} -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
+         ./csg sign -f ${{ inputs.artifact_path }}/${{ inputs.artifact_name }} -o ${{ inputs.csg_output_dir}} -g ${{ inputs.group_id }} -i ${{ inputs.signing_profile_id }} -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
       shell: bash
       
