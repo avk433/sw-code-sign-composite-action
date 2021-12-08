@@ -51,9 +51,14 @@ runs:
          rm -rf ${{ github.workspace }}/output
       shell: bash
     
-    - name: Sign jar file
+    - name: Sign artifact
       run: |
          export CSG_ADDR=https://csg.sherwin.com 
          ./csg sign -f ${{ inputs.artifact_path }}/${{ inputs.artifact_name }} -o ${{ inputs.csg_output_dir}} -g ${{ inputs.group_id }} -i ${{ inputs.signing_profile_id }} -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
       shell: bash
+      
+    - name: Clean Up the files
+       run: |
+          rm -rf ${{ github.workspace }}/csg-cli-linux-amd64-v1.0.1.tar.gz ${{ github.workspace }}/csg
+       shell: bash   
       
