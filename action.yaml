@@ -59,7 +59,7 @@ runs:
            filenameName = "Signed_${{ inputs.artifact_name }}"
          else 
            echo "In else"
-           filenameName = ${{ inputs.csg_output_filename }}
+           filenameName = "${{ inputs.csg_output_filename }}"
          fi
          echo "FileName $filenameName"
          export CSG_ADDR=https://csg.sherwin.com 
