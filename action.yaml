@@ -28,7 +28,7 @@ inputs:
   ghes_pat:
     required: true
     description: 'GHES Personal Access Token to Download CSG CLI from GitHub Release'
-  csg_output_dir:
+  csg_output_filename:
     required: false
     description: 'Signed file Name. Default is Security_<Artifact_Name>'
   
