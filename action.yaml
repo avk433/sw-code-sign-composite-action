@@ -52,11 +52,11 @@ runs:
     
     - name: Sign artifact
       run: |
-         filenameName = "Signed_${{ inputs.artifact_name }}
+         filenameName = "Signed_${{ inputs.artifact_name }}"
          if [ -z "${{ inputs.csg_output_filename }}" ] 
          then
            echo "csg_output_filename is empty. Setting default Name"
-           filenameName = "Signed_${{ inputs.artifact_name }}
+           filenameName = "Signed_${{ inputs.artifact_name }}"
          else 
            echo "In else"
            filenameName = ${{ inputs.csg_output_filename }}
