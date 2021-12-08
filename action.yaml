@@ -53,7 +53,8 @@ runs:
     - name: Sign artifact
       run: |
          fileName="${{ inputs.csg_output_filename }}"
-         if [ -z "${{ inputs.csg_output_filename }}" ] 
+         if [ -z "${{ inputs.csg_output_filename }}" ]
+         then
            fileName="Signed_${{ inputs.artifact_name }}"
          fi
          export CSG_ADDR=https://csg.sherwin.com 
