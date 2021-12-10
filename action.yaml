@@ -30,7 +30,7 @@ inputs:
     description: 'GHES Personal Access Token to Download CSG CLI from GitHub Release'
   csg_output_filename:
     required: false
-    description: 'Signed file Name. Default is Security_<Artifact_Name>'
+    description: 'Signed file Name. Default is Signed_<Artifact_Name>'
   
 runs:
   using: "composite"  
