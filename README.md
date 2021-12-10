@@ -2,7 +2,7 @@
 
 ### Parameters
 | Name | Type |      | Default | Note | 
-| ---- | ---- | ---- | ----- | ---- |
+| ---- | ---- | ---- | ------- | ---- |
 `group_id` | Integer | Required* | `11` | Defaults to `gg-app-ncipher-csg-p-da-team` id
 `signing_profile_id` | Integer | Required* | `4` | Defaults to `jar` signing profile id
 `artifact_path` | String | Required* | `${{github.workspace}}` 
