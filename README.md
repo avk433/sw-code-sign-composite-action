@@ -5,7 +5,7 @@
 | ---- | ---- | ---- | ----- | ---- |
 `group_id` | Integer | Required* | `11` | Defaults to `gg-app-ncipher-csg-p-da-team` id
 `signing_profile_id` | Integer | Required* | `4` | Defaults to `jar` signing profile id
-`artifact_path` | String | Required* | `${{ github.workspace }}` 
+`artifact_path` | String | Required* | `${{github.workspace}}` 
 `artifact_name` | String | Required* |
 `csg_username` | String | Required* | `sa-digitalit-dss`
 `csg_password` | Secret | Required* |
