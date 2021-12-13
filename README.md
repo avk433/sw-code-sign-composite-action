@@ -23,5 +23,6 @@ Usage:
         csg_username: 'sa-digitalit-dss'
         csg_password: ${{ secrets.CSG_PASSWORD }}
         ghes_pat: {{ secrets.GITHUB_TOKEN }} # this will be 'ghec_pat' once repo moves
-        csg_output_filename: 'Signed_<filename>'
+        # Optional
+        # csg_output_filename: 'Signed_<filename>'
 ```
