@@ -5,12 +5,10 @@ author: DA Team <da.team@sherwin.com>
 inputs:
   group_id:
     required: true
-    default: '11'
-    description: 'Defaults to "gg-app-ncipher-csg-p-da-team" id'
+    description: 'The group id'
   signing_profile_id: 
     required: true
-    default: '4'
-    description: 'Defaults to "JarSigning" profile id'
+    description: 'The signing profile id'
   artifact_path:
     required: true
     default: '${{ github.workspace }}'
@@ -20,7 +18,6 @@ inputs:
     description: 'Name of the artifact to be signed'
   csg_username:
     required: true
-    default: 'sa-digitalit-dss'
     description: 'Username for the CSG'
   csg_password:
     required: true
