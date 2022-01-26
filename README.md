@@ -22,7 +22,7 @@ Usage:
         artifact_name: 'HelloWorld.jar'
         csg_username: ${{ secrets.CSG_USERNAME }}
         csg_password: ${{ secrets.CSG_PASSWORD }}
-        ghes_pat: {{ secrets.GITHUB_TOKEN }} # this will be 'ghec_pat' once repo moves
+        ghes_pat: ${{ secrets.GITHUB_TOKEN }} # this will be 'ghec_pat' once repo moves
         # Optional
         # csg_output_filename: 'Signed_<filename>'
 ```
