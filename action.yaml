@@ -25,17 +25,21 @@ inputs:
   csg_output_filename:
     required: false
     description: 'Signed file Name. Default is Signed_<Artifact_Name>'
+  jf_artifactory_token:
+    required: true
+    description: '${{ secrets.JF_ARTIFACTORY_TOKEN }}'
   
 runs:
   using: "composite"  
   steps:
     - uses: jfrog/setup-jfrog-cli@v2.0.0
       env:
-        JF_ARTIFACTORY_1: ${{ secrets.JF_ARTIFACTORY_TOKEN }}
+        JF_ARTIFACTORY_1: ${{ inputs.jf_artifactory_token }}
 
     - name: Download csg CLI from Artifactory
       run: |
         jfrog rt dl  "third-party-installs/sherwin-williams-co/csg-cli/9/csg-cli-linux-amd64-v1.0.1.tar.gz" --sort-by=created --sort-order=desc --limit=1
+      shell: bash
       
        
     - name: Extract tar file
