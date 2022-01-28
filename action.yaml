@@ -27,7 +27,7 @@ inputs:
     description: 'Signed file Name. Default is Signed_<Artifact_Name>'
   jf_artifactory_token:
     required: true
-    description: '${{ secrets.JF_ARTIFACTORY_TOKEN }}'
+    description: 'Jfrog CLI JF Artifactory Token'
   
 runs:
   using: "composite"  
