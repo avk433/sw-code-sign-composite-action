@@ -22,6 +22,7 @@ Usage:
         artifact_name: 'HelloWorld.jar'
         csg_username: ${{ secrets.CSG_USERNAME }}
         csg_password: ${{ secrets.CSG_PASSWORD }}
+        jf_artifactory_token: ${{ secrets.JF_ARTIFACTORY_TOKEN }}
         # Optional
         # csg_output_filename: 'Signed_<filename>'
 ```
