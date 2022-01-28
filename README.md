@@ -9,7 +9,7 @@
 `artifact_name` | String | Required* |
 `csg_username` | String | Required* |
 `csg_password` | Secret | Required* |
-`jf_artifactory_token` | Secret | Required* | | Use: `${{ secrets.JF_ARTIFACTORY_TOKEN}}`
+`jf_artifactory_token` | Secret | Required* | | Use: `${{ secrets.JF_ARTIFACTORY_TOKEN }}`
 `csg_output_filename` | String | *Optional*
 
 Usage:
