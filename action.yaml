@@ -52,6 +52,7 @@ runs:
     
     - name: Sign artifact
       run: |
+         cd ${{ github.workspace }}/linux
          set -x
          fileName="${{ inputs.csg_output_filename }}"
          if [ -z "${{ inputs.csg_output_filename }}" ]
