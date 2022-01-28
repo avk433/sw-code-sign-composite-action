@@ -43,7 +43,7 @@ runs:
       
     - name: Extract tar file
       run: |
-         cd ${{ github.workspace }}/9/
+         cd ${{ github.workspace }}/sherwin-williams-co/csg-cli/9/
          tar -xvf csg-cli-linux-amd64-v1.0.1.tar.gz
          mv ${{ github.workspace }}/output/linux/csg ${{ github.workspace }}/
          rm -rf ${{ github.workspace }}/output
