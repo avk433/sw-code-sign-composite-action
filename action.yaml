@@ -38,21 +38,18 @@ runs:
 
     - name: Download csg CLI from Artifactory
       run: |
-        jfrog rt dl  "third-party-installs/sherwin-williams-co/csg-cli/9/csg-cli-linux-amd64-v1.0.1.tar.gz" --sort-by=created --sort-order=desc --limit=1
+        jfrog rt dl --flat "third-party-installs/sherwin-williams-co/csg-cli/9/csg-cli-linux-amd64-v1.0.1.tar.gz" --sort-by=created --sort-order=desc --limit=1
       shell: bash
       
     - name: Extract tar file
       run: |
-         cd ${{ github.workspace }}/sherwin-williams-co/csg-cli/9/
          tar -xvf csg-cli-linux-amd64-v1.0.1.tar.gz
-         mv ${{ github.workspace }}/sherwin-williams-co/csg-cli/9/output/linux ${{ github.workspace}}/
+         mv ${{ github.workspace }}/output/linux/csg ${{ github.workspace }}/
          rm -rf ${{ github.workspace }}/output
-#       mv ${{ github.workspace }}/output/linux/csg ${{ github.workspace }}/
       shell: bash
     
     - name: Sign artifact
       run: |
-         cd ${{ github.workspace }}/linux
          set -x
          fileName="${{ inputs.csg_output_filename }}"
          if [ -z "${{ inputs.csg_output_filename }}" ]
