@@ -49,17 +49,17 @@ runs:
          rm -rf ${{ github.workspace }}/output
       shell: bash
     
-#     - name: Sign artifact
-#       run: |
-#          set -x
-#          fileName="${{ inputs.csg_output_filename }}"
-#          if [ -z "${{ inputs.csg_output_filename }}" ]
-#          then
-#            fileName="Signed_${{ inputs.artifact_name }}"
-#          fi
-#          export CSG_ADDR=https://csg.sherwin.com 
-#          ./csg sign -f ${{ inputs.artifact_path }}/${{ inputs.artifact_name }} -o $fileName -g ${{ inputs.group_id }} -i ${{ inputs.signing_profile_id }} -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
-#       shell: bash
+    - name: Sign artifact
+      run: |
+         set -x
+         fileName="${{ inputs.csg_output_filename }}"
+         if [ -z "${{ inputs.csg_output_filename }}" ]
+         then
+           fileName="Signed_${{ inputs.artifact_name }}"
+         fi
+         export CSG_ADDR=https://csg.sherwin.com 
+         ./csg sign -f ${{ inputs.artifact_path }}/${{ inputs.artifact_name }} -o $fileName -g ${{ inputs.group_id }} -i ${{ inputs.signing_profile_id }} -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
+      shell: bash
       
     - name: Clean Up the files
       run: |
