@@ -32,13 +32,14 @@ inputs:
 runs:
   using: "composite"  
   steps:
-    - name: API call to download csg cli
-      uses: sherwin-williams-co/sw-release-downloader-action@main
-      with:
-       repository: "Corp-IS-InfoSec/csg-cli"
-       tag: v1.0.1
-       fileName: "csg-cli-linux-amd64-v1.0.1.tar.gz"
-       token: ${{ inputs.ghes_pat }}
+    - uses: jfrog/setup-jfrog-cli@v2.0.0
+      env:
+        JF_ARTIFACTORY_1: ${{ secrets.JF_ARTIFACTORY_TOKEN }}
+
+    - name: Download csg CLI from Artifactory
+      run: |
+        jfrog rt dl  "third-party-installs/sherwin-williams-co/csg-cli/9/csg-cli-linux-amd64-v1.0.1.tar.gz" --sort-by=created --sort-order=desc --limit=1
+      
        
     - name: Extract tar file
       run: |
@@ -47,17 +48,17 @@ runs:
          rm -rf ${{ github.workspace }}/output
       shell: bash
     
-    - name: Sign artifact
-      run: |
-         set -x
-         fileName="${{ inputs.csg_output_filename }}"
-         if [ -z "${{ inputs.csg_output_filename }}" ]
-         then
-           fileName="Signed_${{ inputs.artifact_name }}"
-         fi
-         export CSG_ADDR=https://csg.sherwin.com 
-         ./csg sign -f ${{ inputs.artifact_path }}/${{ inputs.artifact_name }} -o $fileName -g ${{ inputs.group_id }} -i ${{ inputs.signing_profile_id }} -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
-      shell: bash
+#     - name: Sign artifact
+#       run: |
+#          set -x
+#          fileName="${{ inputs.csg_output_filename }}"
+#          if [ -z "${{ inputs.csg_output_filename }}" ]
+#          then
+#            fileName="Signed_${{ inputs.artifact_name }}"
+#          fi
+#          export CSG_ADDR=https://csg.sherwin.com 
+#          ./csg sign -f ${{ inputs.artifact_path }}/${{ inputs.artifact_name }} -o $fileName -g ${{ inputs.group_id }} -i ${{ inputs.signing_profile_id }} -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
+#       shell: bash
       
     - name: Clean Up the files
       run: |
