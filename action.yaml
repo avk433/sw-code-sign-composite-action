@@ -47,6 +47,11 @@ runs:
          mv ${{ github.workspace }}/output/linux/csg ${{ github.workspace }}/
          rm -rf ${{ github.workspace }}/output
       shell: bash
+      
+    - name: Check signing profiles
+      run: |
+        export CSG_ADDR=https://csg.sherwin.com 
+        ./csg profiles -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
     
     - name: Sign artifact
       run: |
