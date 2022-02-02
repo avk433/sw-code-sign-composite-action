@@ -52,6 +52,7 @@ runs:
       run: |
         export CSG_ADDR=https://csg.sherwin.com 
         ./csg profiles -u ${{ inputs.csg_username }} -p ${{ inputs.csg_password }}
+      bash: shell
     
     - name: Sign artifact
       run: |
